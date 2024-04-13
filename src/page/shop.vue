@@ -229,8 +229,9 @@
               <card_Row :tabcard = "getPaginatedData()"/>
 
               <nav class="d-flex justify-content-center my-5">
+                <li class="page-item"><a class="border-0 page-link rounded-circle" @click="goToNextPage">Previous</a></li>
                 <ul class="pagination pagination-circle">
-                  <li class="page-item" v-for="pageNumber in 8" :key="pageNumber" @click="currentPage = pageNumber"><a class="border-0 page-link rounded-circle">{{ pageNumber }}</a></li>
+                  <li class="page-item" v-for="pageNumber in npd" :key="pageNumber" @click="currentPage = pageNumber"><a class="border-0 page-link rounded-circle">{{ pageNumber }}</a></li>
                 </ul>
               </nav>
             </div>
@@ -267,6 +268,7 @@ export default {
       isChecked2:false,
       currentPage: 1,
       itemsPerPage: 9,
+      npd: ref(0)
     };
   },
 
@@ -278,9 +280,10 @@ export default {
       });
     },
 
- 
-
     getPaginatedData() {
+      const page = this.data_Card.length
+      this.npd = Math.ceil(page/9)
+      console.log (this.npd)
       const startIndex = (this.currentPage - 1) * this.itemsPerPage;
       const endIndex = startIndex + this.itemsPerPage;
       const data = this.data_Card.slice(startIndex, endIndex)
