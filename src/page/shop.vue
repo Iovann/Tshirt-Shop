@@ -223,18 +223,28 @@
             </p>
           </div>
           <div v-else>
-            <card_Row :tabcard = "data_Card"/>
+            <!-- <card_Row :tabcard = "data_Card"/> -->
+
+            <div class="">
+              <card_Row :tabcard = "getPaginatedData()"/>
+            </div>
           </div>
           </div>
       </div>
 
+      <div class="pagination">
+      <button v-for="pageNumber in 8" :key="pageNumber" @click="currentPage = pageNumber">
+        {{ pageNumber }}
+      </button>
+    </div>
+
       <nav aria-label="...">
         <ul class="pagination pagination-circle">
           <li class="page-item"><a class="page-link border-0 rounded-circle">Previous</a></li>
-          <li class="page-item"><a class="border-0 page-link rounded-circle" href="#">1</a></li>
-          <li class="page-item"><a class="page-link border-0 rounded-circle" href="#">2</a></li>
-          <li class="page-item"><a class="page-link border-0 rounded-circle" href="#">3</a></li>
-          <li class="page-item"><a class="page-link border-0 rounded-circle" href="#">Next</a></li>
+          <li class="page-item"><a class="border-0 page-link rounded-circle">1</a></li>
+          <li class="page-item"><a class="page-link border-0 rounded-circle">2</a></li>
+          <li class="page-item"><a class="page-link border-0 rounded-circle">3</a></li>
+          <li class="page-item"><a class="page-link border-0 rounded-circle">Next</a></li>
         </ul>
       </nav>
     </section>
@@ -264,14 +274,26 @@ export default {
       originalDataCard: [],
       isChecked1:false,
       isChecked2:false,
+      currentPage: 1,
+      itemsPerPage: 9,
     };
   },
+
+  
   methods: {
     scrollToTop() {
       window.scrollTo({
         top: 0,
         behavior: 'smooth'
       });
+    },
+
+    getPaginatedData() {
+      const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+      const endIndex = startIndex + this.itemsPerPage;
+      const data = this.data_Card.slice(startIndex, endIndex)
+      console.log(data)
+      return data
     },
 
     filterByPrice() {
@@ -331,9 +353,9 @@ export default {
             // Initialiser les données originales avec toutes les données de la base de données
             this.originalDataCard = info.map(card => ({ ...card }));
             // Copier les données originales dans data_card pour afficher tous les articles par défaut
-            this.data_Card = [...this.originalDataCard];
-           
-  },
+            // this.data_Card = info
+            // this.data_Card = this.getPaginatedData(); 
+          },
   setup() {
     class Card {
       constructor(name, image, categorie, color, price, inventory) {
@@ -356,7 +378,9 @@ export default {
     };
     onMounted(makeCard);
 
-    let search = ref('')
+
+
+  let search = ref('')
     watch(search, (new_value)=>{
       console.log(new_value)
       let tab = info.filter(card => card.name.toLowerCase().includes(new_value.toLowerCase()));
@@ -364,7 +388,7 @@ export default {
     })
     return {
       data_Card,
-      search
+      search,
     };
   }
 }

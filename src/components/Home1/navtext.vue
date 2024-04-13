@@ -28,7 +28,7 @@
           </router-link>
           <ul class="dropdown-menu">
             <li><router-link to="/Blog" class="dropdown-item text-center text-lg-start " >Blog</router-link></li>
-            <li><router-link to="/Blog_Detail" class="dropdown-item text-center text-lg-start "  >Blog Détail</router-link></li>
+            <!-- <li><router-link to="/Blog_Detail" class="dropdown-item text-center text-lg-start "  >Blog Détail</router-link></li> -->
             <!-- <li><router-link to="" class="dropdown-item" >Something else here</router-link></li> -->
           </ul>
         </li>

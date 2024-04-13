@@ -13,7 +13,7 @@
                 </div>
                 <div class="col-md-5 px-0 d-flex justify-content-center py-2 py-md-0">
                     <img src="../assets/icons/fire.svg" alt=""/>
-                    <span class="ms-md-3 fw-semibold align-self-center "> Free shipping on all U.S. orders $50+</span>
+                    <span class="ms-md-3 fw-semibold align-self-center "> Free shipping on all U.S. orders &nbsp; $50+</span>
                 </div>
                 <div class="col-4 col-lg-2 d-flex justify-content-lg-end justify-content-center px-0  py-2 py-md-0">
                     <span class="bg-white btn fw-bold me-2 rounded-2">Login</span>
