@@ -227,26 +227,17 @@
 
             <div class="">
               <card_Row :tabcard = "getPaginatedData()"/>
+
+              <nav class="d-flex justify-content-center my-5">
+                <ul class="pagination pagination-circle">
+                  <li class="page-item" v-for="pageNumber in 8" :key="pageNumber" @click="currentPage = pageNumber"><a class="border-0 page-link rounded-circle">{{ pageNumber }}</a></li>
+                </ul>
+              </nav>
             </div>
           </div>
           </div>
+
       </div>
-
-      <div class="pagination">
-      <button v-for="pageNumber in 8" :key="pageNumber" @click="currentPage = pageNumber">
-        {{ pageNumber }}
-      </button>
-    </div>
-
-      <nav aria-label="...">
-        <ul class="pagination pagination-circle">
-          <li class="page-item"><a class="page-link border-0 rounded-circle">Previous</a></li>
-          <li class="page-item"><a class="border-0 page-link rounded-circle">1</a></li>
-          <li class="page-item"><a class="page-link border-0 rounded-circle">2</a></li>
-          <li class="page-item"><a class="page-link border-0 rounded-circle">3</a></li>
-          <li class="page-item"><a class="page-link border-0 rounded-circle">Next</a></li>
-        </ul>
-      </nav>
     </section>
         
     <firstfooter/>
@@ -294,6 +285,20 @@ export default {
       const data = this.data_Card.slice(startIndex, endIndex)
       console.log(data)
       return data
+    },
+
+    goToNextPage(){
+      if (currentPage < Math.ceil(originalDataCard.length / itemsPerPage)) {
+        currentPage++; // Mettre à jour currentPage avant de récupérer les données
+        data_Card.value = getPaginatedData();
+      }
+    },
+
+    goToPreviousPage(){
+      if (currentPage > 1) {
+        currentPage--; // Mettre à jour currentPage avant de récupérer les données
+        data_Card.value = getPaginatedData();
+      }
     },
 
     filterByPrice() {

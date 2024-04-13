@@ -1,8 +1,5 @@
 import { createApp } from 'vue'
 import './style.css'
-// import "./slick.min.js"
-// import "./slick.css"
-// import "./slick-theme.css"
 import App from './App.vue'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
@@ -39,11 +36,3 @@ const router = createRouter({
 const app = createApp(App)
 app.use(router)
 app.mount('#app')
-
-
-$('.autoplay').slick({
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  autoplay: true,
-  autoplaySpeed: 2000,
-  });
