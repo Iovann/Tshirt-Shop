@@ -246,7 +246,7 @@
 
 <script>
 // import
-import {ref, onMounted, watch} from "vue"
+import {ref, onMounted, watch, computed} from "vue"
 import info from "../BDD"
 import card_Row from "../components/card_row.vue"
 import navigationBar from "../components/navbar.vue";
@@ -270,7 +270,6 @@ export default {
     };
   },
 
-  
   methods: {
     scrollToTop() {
       window.scrollTo({
@@ -279,11 +278,12 @@ export default {
       });
     },
 
+ 
+
     getPaginatedData() {
       const startIndex = (this.currentPage - 1) * this.itemsPerPage;
       const endIndex = startIndex + this.itemsPerPage;
       const data = this.data_Card.slice(startIndex, endIndex)
-      console.log(data)
       return data
     },
 
@@ -383,7 +383,11 @@ export default {
     };
     onMounted(makeCard);
 
-
+    let page = ref()
+    const pageData = computed(()=>{
+      page.value = Math.ceil(getPaginatedData.length / 9)
+      return page
+    })
 
   let search = ref('')
     watch(search, (new_value)=>{
@@ -394,6 +398,7 @@ export default {
     return {
       data_Card,
       search,
+      pageData
     };
   }
 }
