@@ -16,12 +16,10 @@
             </div>
         </section>
 
-        <p class="text-center">
-            <button class="btn btn-primary d-inline d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-                Aside
-            </button>
-        </p>
-
+            <button class="btn ms-5 d-inline d-lg-none border-0 mb-5 " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+              <img src="../assets/shop/sidebar.svg" alt="" class="side">
+          </button>
+          
         <div class="offcanvas offcanvas-start  d-lg-none" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
             <div class="offcanvas-header">
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
