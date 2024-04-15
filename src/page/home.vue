@@ -61,14 +61,14 @@
 
                 <div class="row align-items-center my-5 text-center">
                     <div class="col-lg-4">
-                        <p class="fw-bold display-4 text-center mb-0" id="four">4k+</p>
+                        <p class="fw-bold display-4 text-center mb-0" id="four">{{ count1}}k+</p>
                         <p class="text-center fw-lighter">Collections</p>
                     </div>
                     <div class="col-lg-1 pe-0 d-none d-lg-block ">
                         <img src="../assets/icons/line.svg" alt="">
                     </div>
                     <div class="col-lg-7 px-0 ">
-                        <p class="fw-bold display-4 text-center mb-0 ">9k+</p>
+                        <p class="fw-bold display-4 text-center mb-0 ">{{count2}}k+</p>
                         <p class="text-center fw-lighter">items trusted to deliver</p>
                     </div>
                 </div>
@@ -564,28 +564,31 @@ export default {
      card2: false,   
      card3: false,   
      card4: false,
-     close: false,   
+     close: false,  
+     count1: 0,
+     count2: 0,
+     endValue1: 4,
+     endValue2:9, 
+     duration: 750, 
     }
    },
-   setup:{
-    animateValue(obj, start, end, duration) {
-        const cible = getElementById(obj) 
-        let startTimestamp = null;
-        const step = (timestamp) => {
-            if (!startTimestamp) startTimestamp = timestamp;
-            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-            cible.innerHTML = Math.floor(progress * (end - start) + start);
-            if (progress < 1) {
-                window.requestAnimationFrame(step);
-            }
-        };
-        window.requestAnimationFrame(step);
+   methods:{
+    startCounting(){
+            const startTimestamp = performance.now();
+            const animateValue = (timestamp) => {
+                const progress = Math.min((timestamp - startTimestamp) / this.duration, 1);
+                this.count1 = Math.floor(progress * this.endValue1);
+                this.count2 = Math.floor(progress * this.endValue2);
+                if (progress < 1) {
+                    window.requestAnimationFrame(animateValue);
+                }
+            };
+            window.requestAnimationFrame(animateValue);
+        },
     },
-
-    
- 
- },
-   
+   mounted(){
+    this.startCounting()
+   }
 
 }
 </script>

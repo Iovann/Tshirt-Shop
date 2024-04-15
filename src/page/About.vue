@@ -214,22 +214,22 @@
            <div class="container">
                 <div class="row justify-content-between ">
                     <div class="col-md-3 text-center">
-                        <p class="display-4 fw-bolder mb-0 " style="color: #2EBB77;">$36M</p>
+                        <p class="display-4 fw-bolder mb-0 " style="color: #2EBB77;">${{count[0]}}M</p>
                         <p class="text-lighter">printing equipment</p>
                     </div>
 
                     <div class="col-md-3 text-center">
-                        <p class="display-4 fw-bolder mb-0 " style="color: #2EBB77;">19M+</p>
+                        <p class="display-4 fw-bolder mb-0 " style="color: #2EBB77;">{{count[1]}}M+</p>
                         <p class="text-lighter">items trusted to deliver</p>
                     </div>
 
                     <div class="col-md-3 text-center">
-                        <p class="display-4 fw-bolder mb-0 " style="color: #2EBB77;">$48M+</p>
+                        <p class="display-4 fw-bolder mb-0 " style="color: #2EBB77;">${{count[2]}}M+</p>
                         <p class="text-lighter">sold by customers <br>through TeeSpace </p>
                     </div>
 
                     <div class="col-md-3 text-center">
-                        <p class="display-4 fw-bolder mb-0 " style="color: #2EBB77;">1056</p>
+                        <p class="display-4 fw-bolder mb-0 " style="color: #2EBB77;">{{ count[3] }}</p>
                         <p class="text-lighter">person team across North <br> America and Europe </p>
                     </div>
                 </div>            
@@ -339,9 +339,31 @@ export default {
     data() {
     return {
       isButtonClicked: false,
-      Open:[false, false, false, false]
+      Open:[false, false, false, false],
+      count:[0, 0, 0, 0],
+      endValue:[36, 19, 48, 1056],
+      duration:1200
     }
   },
+  methods: {
+    startCounting(){
+            const startTimestamp = performance.now();
+            const animateValue = (timestamp) => {
+                const progress = Math.min((timestamp - startTimestamp) / this.duration, 1);
+                this.count[0] = Math.floor(progress * this.endValue[0]);
+                this.count[1] = Math.floor(progress * this.endValue[1]);
+                this.count[2] = Math.floor(progress * this.endValue[2]);
+                this.count[3] = Math.floor(progress * this.endValue[3]);
+                if (progress < 1) {
+                    window.requestAnimationFrame(animateValue);
+                }
+            };
+            window.requestAnimationFrame(animateValue);
+        },
+    },
+   mounted(){
+    this.startCounting()
+   },
 }
 </script>
 
