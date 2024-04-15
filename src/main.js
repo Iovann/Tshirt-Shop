@@ -14,6 +14,8 @@ import service_detail from './page/service_détail.vue'
 import service from './page/Service.vue'
 import faq from './page/FAQ.vue'
 import princing from './page/pricing.vue'
+import login from './page/login.vue'
+import inscription from './page/register.vue'
 
 const routes = [
   { path: '/', component: Home },
@@ -26,6 +28,8 @@ const routes = [
   { path: '/service', component: service},
   { path: '/faq', component: faq},
   { path: '/pricing', component: princing},
+  { path: '/login', component: login},
+  { path: '/sign', component: inscription},
 ]
 
 const router = createRouter({

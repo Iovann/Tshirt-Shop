@@ -38,7 +38,7 @@
                         <span class="fw-lighter">HOTLINE</span><br>
                         <span class="fw-semibold">00 1900 8188</span>
                     </p>
-                    <span class="bg-black text-white btn fw-bold px-2 rounded-2">Sign Up</span>
+                    <router-link to="/sign" class="bg-black text-white btn fw-bold px-2 rounded-2">Sign Up</router-link>
                 </div>
             </div>
         </nav>
@@ -567,7 +567,7 @@ export default {
      close: false,   
     }
    },
-   methods:{
+   setup:{
     animateValue(obj, start, end, duration) {
         const cible = getElementById(obj) 
         let startTimestamp = null;
@@ -580,9 +580,13 @@ export default {
             }
         };
         window.requestAnimationFrame(step);
-    }
-   },
+    },
+
+    
+ 
+ },
    
+
 }
 </script>
 

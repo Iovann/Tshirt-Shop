@@ -228,11 +228,13 @@
             <div class="">
               <card_Row :tabcard = "getPaginatedData()"/>
 
-              <nav class="d-flex justify-content-center my-5">
-                <li class="page-item"><a class="border-0 page-link rounded-circle" @click="goToNextPage">Previous</a></li>
+              <nav class="d-flex justify-content-center my-5 align-items-center">
+                <span class="border-0 page-link rounded-circle" @click="goToNextPage">Previous</span>
                 <ul class="pagination pagination-circle">
                   <li class="page-item" v-for="pageNumber in npd" :key="pageNumber" @click="currentPage = pageNumber"><a class="border-0 page-link rounded-circle">{{ pageNumber }}</a></li>
                 </ul>
+                <span class="border-0 page-link rounded-circle" @click="goToNextPage">Previous</span>
+
               </nav>
             </div>
           </div>
