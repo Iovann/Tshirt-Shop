@@ -36,7 +36,7 @@
         </div>
 
         <div class="row justify-content-between">
-            <p class="text-center text-xl-start col-lg-3">&copy; 2022 TeeSpace. All rights reserved.</p>
+            <p class="text-center text-xl-start col-lg-3">By Iovann ATCHO &copy; 2024 TeeSpace. All rights reserved.</p>
             <p class="text-center col-lg-4 text-xl-start "><img src="../assets/images/footer-payment-method.png.svg" alt="" class="img-fluid"></p>
             <div class="text-center col-lg-2">
                 <p class="row justify-content-between">

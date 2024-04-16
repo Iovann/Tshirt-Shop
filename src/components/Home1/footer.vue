@@ -38,7 +38,7 @@
         </div>
 
         <p class="text-center"><img src="../../assets/images/footer-payment-method.png.svg" alt="" class="img-fluid"></p>
-        <p class="text-center">&copy; 2022 TeeSpace. All rights reserved.</p>
+        <p class="text-center">By Iovann ATCHO &copy; 2024 TeeSpace. All rights reserved.</p>
     </div>
   </div>
 </template>
