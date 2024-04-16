@@ -38,7 +38,7 @@
 
               <!-- Register buttons -->
               <div class="text-center">
-                <p>Not a member? <br><a href="" class="me-3">Register</a> <a class="">or sign up with:</a></p>
+                <p>Not a member? <br><router-link to="/sign" href="" class="me-3">Register</router-link> <a class="">or sign up with:</a></p>
                 <button  data-mdb-ripple-init type="button" class="btn rounded-circle px-2 py-2 bg-green2 mx-1">
                   <img src="/src/assets/icons/github.svg" alt="">
                 </button>

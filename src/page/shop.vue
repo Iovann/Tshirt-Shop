@@ -15,7 +15,7 @@
             </div>
         </section>
 
-          <button class="btn ms-5 d-inline d-lg-none border-0 mb-5 " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+          <button class="btn ms-5 d-inline d-xl-none border-0 mb-5 " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
               <img src="../assets/shop/sidebar.svg" alt="" class="side">
           </button>
 
@@ -227,15 +227,20 @@
 
             <div class="">
               <card_Row :tabcard = "getPaginatedData()"/>
-
-              <nav class="d-flex justify-content-center my-5 align-items-center">
-                <ul class="pagination pagination-circle">
-                  <li class="page-item" v-for="pageNumber in npd" :key="pageNumber" @click="currentPage = pageNumber"><a class="border-0 page-link rounded-circle fs-5 mx-1" :class="{'bg-primary text-white px-3' :currentPage === pageNumber}">{{ pageNumber }}</a></li>
-                </ul>
-              </nav>
             </div>
           </div>
+        </div>
+
+
+        <div class="row justify-content-end ">
+          <div class="col-xl-9">
+            <nav class="d-flex justify-content-center my-5 align-items-center">
+              <ul class="pagination pagination-circle">
+                <li class="page-item" v-for="pageNumber in npd" :key="pageNumber" @click="currentPage = pageNumber"><a class="border-0 page-link rounded-circle fs-5 mx-1" :class="{'bg-primary text-white px-3' :currentPage === pageNumber}">{{ pageNumber }}</a></li>
+              </ul>
+            </nav>
           </div>
+        </div>
 
       </div>
     </section>
@@ -297,6 +302,7 @@ export default {
         filteredData = filteredData.filter(card => card.color === this.colorFilter);
       }
       this.data_Card = filteredData.filter(card => card.price <= maxPrice);
+      this.currentPage = 1
     },
 
     filterByColor(color) {
@@ -312,20 +318,24 @@ export default {
       } else {
         this.data_Card = filteredData;
       }
+      this.currentPage = 1
     },
     filterByStatus1() {
         if (this.isChecked1) {
             this.data_Card = this.originalDataCard.filter(card => card.inventory === true);
         }
+        this.currentPage = 1
     },
     filterByStatus2() {
         if (this.isChecked2) {
             this.data_Card = this.originalDataCard.filter(card => card.inventory === false);
         }
+        this.currentPage = 1
     },
 
     filterByCategorie(categorie){
       this.data_Card = this.originalDataCard.filter(card => card.categorie === categorie)
+      this.currentPage = 1
     },
 
     filterByNbre(categorie){

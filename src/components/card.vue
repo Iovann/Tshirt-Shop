@@ -1,5 +1,5 @@
 <template>
-    <div class="card col-xl-4 col-lg-5 col-sm-8 col-12 justify-content-center position-relative border-0">
+    <div class="card col-xl-4 col-lg-5 col-md-6 col-sm-8 col-12 justify-content-center position-relative border-0">
           <div class="cardclass rounded-4 d-flex justify-content-center align-items-center" :style="change" :class="{'soldout' :card.inventory === false}" style="transition: background-size 0.6s ease-in-out;">
             <span class="py-5 px-4 rounded-circle text-white sold fw-bolder " v-if="card.inventory === false">
                 Sold Out

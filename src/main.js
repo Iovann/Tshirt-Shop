@@ -3,7 +3,7 @@ import './style.css'
 import App from './App.vue'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
-import PrimeVue from 'primevue/config';
+// import PrimeVue from 'primevue/config';
 import { createRouter, createWebHashHistory } from 'vue-router';
 import Home from './page/home.vue'
 import our_team from './page/Ourteam.vue'
@@ -41,4 +41,4 @@ const router = createRouter({
 const app = createApp(App)
 app.use(router)
 app.mount('#app')
-app.use(PrimeVue);
+// app.use(PrimeVue);

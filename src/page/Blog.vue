@@ -16,7 +16,7 @@
             </div>
         </section>
 
-            <button class="btn ms-5 d-inline d-lg-none border-0 mb-5 " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+            <button class="btn ms-5 d-inline d-xl-none border-0 mb-5 " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
               <img src="../assets/shop/sidebar.svg" alt="" class="side">
           </button>
           

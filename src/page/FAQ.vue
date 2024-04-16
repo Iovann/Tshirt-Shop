@@ -393,6 +393,8 @@
 </template>
 
 <script>
+// import Accordion from 'primevue/accordion';
+// import AccordionTab from 'primevue/accordiontab';
 import navigationBar from "../components/navbar.vue";
 import firstfooter from "../components/Home1/footer.vue";
 export default {
