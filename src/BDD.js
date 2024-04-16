@@ -3,7 +3,7 @@ const info = [
     // Design Product
     {
         name: "Design Product Brown",
-        image: "../assets/bdd/design/design_product_brown.jpeg",
+        image: "./src/assets/bdd/design/design_product_brown.jpeg",
         categorie: "design",
         color: "brown",
         price: 29,
