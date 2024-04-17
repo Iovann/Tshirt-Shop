@@ -236,7 +236,7 @@
           <div class="col-8 col-xl-9">
             <nav class="d-flex justify-content-center my-5 align-items-center">
               <ul class="pagination pagination-circle">
-                <li class="page-item" v-for="pageNumber in npd" :key="pageNumber" @click="currentPage = pageNumber"><a class="border-0 page-link rounded-circle fs-5 mx-1" :class="{'bg-primary text-white px-3' :currentPage === pageNumber}">{{ pageNumber }}</a></li>
+                <li class="page-item" v-for="pageNumber in npd" :key="pageNumber" @click="currentPage = pageNumber"><a class="border-0 page-link rounded-circle fs-6  mx-lg-1" :class="{'bg-primary text-white px-3 py-2 fw-bolder' :currentPage === pageNumber}">{{ pageNumber }}</a></li>
               </ul>
             </nav>
           </div>
