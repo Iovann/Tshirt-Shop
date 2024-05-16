@@ -226,7 +226,7 @@
             <!-- <card_Row :tabcard = "data_Card"/> -->
 
             <div class="">
-              <card_Row :tabcard = "getPaginatedData()"/>
+              <card_Row :tabcard = "getPaginatedData()" style ="ease-in-out duration"/>
             </div>
           </div>
         </div>
